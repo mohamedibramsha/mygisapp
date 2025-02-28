@@ -98,6 +98,14 @@ const pool = new Pool({
 // Use body-parser to parse request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 
+require('dotenv').config();
+const { Pool } = require("pg");
+
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false } // Required for Render PostgreSQL
+});
+
 // Set up session middleware
 app.use(session({
     secret: 'your-secret-key',
