@@ -72,7 +72,7 @@
 // app.listen(port, () => {
 //   console.log(`Server running at http://localhost:${port}`);
 // });
-
+require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
@@ -98,7 +98,7 @@ const port = 4000;
 // Use body-parser to parse request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 
-require('dotenv').config();
+
 //const { Pool } = require("pg");
 
 const pool = new Pool({
