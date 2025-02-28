@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in to MyGisApp</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to style.css -->
+    <link rel="icon" href="\images\title.png" type="image/x-icon"> 
+</head>
+<body>
+
+        <div class="logos">
+            <img src="\images\mygisapp.png" alt="MyGisApp" width="190" height="80">
+        </div>
+        <br>
+        <br>
+            <div class="login-container"> 
+                
+        <form action="/login" method="POST"> <!-- POSTs form data to /login -->
+            <p style="text-align:center">Sign in to your account</p>
+            <input type="text" name="username" placeholder="Username" required> <!-- Username input -->
+            <input type="password" name="password" placeholder="Password" required> <!-- Password input -->
+            <button type="submit">Login</button> <!-- Submit button -->
+        </form>
+    </div>
+</body>
+</html>

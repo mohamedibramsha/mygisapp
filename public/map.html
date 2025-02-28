@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyGisApp</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    <link rel="icon" href="\images\title.png" type="image/x-icon"> 
+    <!-- Asset search button change -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Plugin for Address Search -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    
+</head>
+<body>
+    <div class="topnav">
+        <div class="dropdown">
+            <button class="dropbtn">File</button>
+            <div class="dropdown-content">
+                <a href="#">New</a>
+                <a href="#">Open</a>
+                <a href="#" id="exportMenu">Export</a>
+                <a href="/logout" onclick="logout()">Logout</a> <!-- Logout Option -->
+            </div>
+        </div>
+        <a href="#edit">Edit</a>
+        <a href="#tools">Tools</a>
+        <a href="#help">Help</a>
+        <!-- To add address search box -->
+        <!-- <div id="search-container">
+            <input type="text" id="addressSearch" placeholder="Enter address..." />
+            <button onclick="searchAddress()">Search</button>
+        </div> -->
+        <div id="AssetsearchContainer">
+            <input type="text" id="searchBox" placeholder="Search asset...">
+            <div id="resultsBox"></div>
+        </div>
+      </div>
+    </div>        
+
+    <!-- <button class="image-button">
+        <img src="\images\locate_me.png" alt="Image" />
+    </button> -->
+
+    <!-- Map Container -->
+    <div id="map">
+        <!-- <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> -->
+    </div>
+
+    <script src="script.js"></script>
+    <script src="layerStyles.js"></script>
+    
+
+    <div id = "side-panels"
+    <!-- For Assets Search -->
+    <div id="asset-search-box">
+        <div id = "search-result">
+            <select id="assetType">
+                <option value="Select collection">Select collection</option>
+            </select>
+            <input type="text" id="assetId" placeholder="Enter Asset ID..." />
+        </div>
+        <div id="btn-icons">
+            <!-- <button id="search-btn" onclick="searchAsset()">🔍</button> -->
+            <button id="search-btn" onclick="searchAsset()"><span class="material-icons">search</span></button>
+
+
+            <!-- <button class="image-button">
+                <img src="\images\locate_me.png" alt="Image" />
+            </button> -->
+
+        </div>
+    </div> 
+    
+    <!-- Map Container -->
+    <!--<div id="map"></div>
+
+    <script src="script.js"></script>-->
+
+    <div id="attributes">
+        <center><h3 id ="coll_name">📂 Object Viewer</h3></center>
+        <table id="attributes-table">
+            <thead>
+                <tr>
+                    <th id="fd">Field</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic Content Will Be Inserted Here -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
