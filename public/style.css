@@ -1,248 +1,129 @@
-
-  body {
+/* Global Styles */
+body {
     font-family: Arial, sans-serif;
     background-color: #eeeeee;
-    /* display: flex;
-    flex-direction: column; *
-    justify-content: center;
-    align-items: center; */
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
 }
 
-.logos {
-    /* font-family: Arial, sans-serif;
-    background-color: #fefefe; */
-    display: flex;
-    flex-direction: column; 
-    top: 50%;
-    justify-content: center;
-    align-items: center;
-    /* height: 100vh; */
-    margin: 0;
-}
-.login-container {
-    background-color: #c7f1d7;
-    display: flex;
-    padding: 100px;
-    justify-content: center;
-    /* margin-top: -2%; */
-    margin-left: 25%;
-    margin-right: 25%;
-    align-items: center;
-    border-radius: 10px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-}
-
-.login-container h2 {
-    margin-bottom: 20px;
-}
-
-.login-container form {
+/* Logo & Login Container */
+.logos, .login-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
 }
 
-.login-container input {
-    margin-bottom: 10px;
+.login-container {
+    background-color: #c7f1d7;
+    padding: 50px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Input Fields & Buttons */
+.login-container input, 
+.login-container button {
+    width: 100%;
+    max-width: 300px;
     padding: 10px;
-    padding-right: 200px;
-    border: 0px solid #ccc;
+    margin: 5px 0;
     border-radius: 5px;
 }
 
 .login-container button {
-    padding: 10px;
     background-color: #6ad483;
-    color: #fff;
+    color: white;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
 }
-
 
 .login-container button:hover {
     background-color: #218838;
 }
 
-/* Add a black background color to the top navigation */
+/* Navigation */
 .topnav {
     background-color: #333;
     overflow: hidden;
-  }
-  
-  /* Style the links inside the navigation bar */
-  .topnav a {
-    float: left;
-    /* color: #40f597; */
-    color:white;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.topnav a, 
+.dropdown .dropbtn {
+    color: white;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-  }
-  
-  /* Change the color of links on hover */
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
+}
 
-  /* drop down for FILE menu */
-  .dropdown {
-    float: left;
-    position: static;
-    
-}
-.dropdown .dropbtn {
-    background-color: #333;
-    /* color: #40f597; */
-    /* color:#c7f1d7; */
-    color:white;
-    padding: 14px 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
+.topnav a:hover, 
 .dropdown:hover .dropbtn {
     background-color: #ddd;
     color: black;
 }
+
+/* Dropdown Menu */
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #333;
-    float: left;
-    /* color:#40f597; */
-    color:#c7f1d7;
-    min-width: 80px;  /* Control the width of the dropdown */
+    min-width: 120px;
     z-index: 1100;
 }
+
 .dropdown-content a {
-    /* color: #40f597; */
-    color:#c7f1d7;
+    color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    width: 80px; 
-}
-  
-.dropdown.show .dropdown-content {
-    display: block;  /* Show the dropdown when clicked */
-    width: min-content;      
 }
 
-.leaflet-control-custom {
-    background: white;
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
-/* Styling for search button inside map (Top-Left) */
-.leaflet-control-custom {
-    background: white;
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+/* Map Container */
+#map {
+    width: 100%;
+    height: 60vh;
+    max-width: 900px;
+    border: 2px solid #333;
+    border-radius: 8px;
 }
 
-/* Position the search box close to the search button */
+/* Search Box */
 .search-box-container {
     position: absolute;
-    top: 300px; /* Below the search button */
-    left: 40px; /* Align with the button */
+    top: 10%;
+    left: 5%;
     background: white;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
     z-index: 1000;
-    display: none;
 }
 
-/* Ensure search suggestions appear near the button */
-#searchSuggestions {
-    position: absolute;
-    width: 250px;
-    max-height: 150px;
-    overflow-y: auto;
-    background: white;
-    color:black;
-    /* border: 1px solid white; */
-    border-radius: 5px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    left: 10px; /* Align with search box */
-    top: 30px; /* Below the search input */
-}
-
-/* Style each suggestion */
-.suggestion-item {
-    padding: 8px;
-    cursor: pointer;
-    border-bottom: 1px solid white;
-}
-
-.suggestion-item:hover {
-    background: lightgray;
-}
-
-
-
-#map {
-    position: absolute;
-    height: 92.6%;
-    width: 70%;
-    margin-left: 0.05%;
-    border: 0cap solid #ccc;
-    border-radius: 8px;
-    border-color: #333;
-    border-width: 2px;
-    top: 6.3%;
-    z-index: 1000;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-}
-
-#btn-icons{
-    display:flex;
-    justify-content: space-evenly;
-    height: 58%;
-    /* color: black;
-    background: black; */
-}
-#search-btn .material-icons {
-    color:#FFFFFF;
-    
-    
-    visibility: visible;
-  }
-
-
-#search-result{
-    display:flex;
-    justify-content: space-evenly;
-}
-
-/* Asset search*/
+/* Asset Search */
 #asset-search-box {
-    flex: 1;
     background: #f5f7f6;
     padding: 10px;
-    max-height: 10%;
     border-radius: 5px;
     display: flex;
-    justify-content: space-evenly;
     flex-direction: column;
     gap: 5px;
-    width: auto; /* Adjust this value */
     border: 1px solid #ccc;
-}
-
-#asset-search-box .button-container {
-    display: flex;
-    gap: 10px; /* Adds spacing between the buttons */
-    align-items: center; /* Vertically centers the buttons */
+    width: 90%;
+    max-width: 400px;
 }
 
 #asset-search-box select,
@@ -250,99 +131,32 @@
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    width: 140px;
+    width: 100%;
 }
 
 #asset-search-box button {
-    /* background: #fefefe; */
-    /* background: black; */
     background: #0853FF;
-    /* color: white; */
-    color: #0853FF;
-    padding: 5px 10px;
+    color: white;
+    padding: 10px;
     border-radius: 3px;
     cursor: pointer;
-    width: 120px;
     border: none;
+    width: 100%;
 }
 
 #asset-search-box button:hover {
     background: #0d0d0e;
 }
 
-/* Start global asset search */
-#AssetsearchContainer {
-    position: absolute;
-    top: 0.0565%;
-    right: 0%;
-    z-index: 1000;
-    padding: 0.73%;
-    /* border-radius: 5px; */
-    /* background-color:  rgb(126, 245, 134); */
-    
-    /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); */
-}
-
-/* #AssetsearchContainer {
-    position: absolute;
-    top: 10%;
-    right:5%;
-    padding: 10px;
-} */
-#resultsBox {
-    border: none;
-    padding: 0px;
-    margin-top: 5px;
-    max-height: 200px;
-    overflow-y: auto;
-    overflow-x: auto;
-    background-color: black;
-    border-radius: 8px;
-    color: white;
-}
-.result-item {
-    right:5%;
-    padding: 1px;
-    cursor: pointer;
-    border-bottom: 1px solid #ddd;
-}
-.result-item:hover {
-     background-color:#0853FF; /*#e0e0e0; */
-}
-/* End global asset search */
-.image-button {
-    padding: 5px;
-    background: #c7f1d7;
-    border: 5px solid red;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    cursor: pointer;
-    width: 30px; /* Adjust width as needed */
-    height: 30px; /* Adjust height as needed */
-}
-
-.image-button:hover {
-    background: #0d0d0e;
-}
-
-.image-button img {
-    width: 100%;
-    height: 100%;
-    border-radius: 3px;
-    object-fit: contain; /* Ensures the image fits properly */
-    display: block;
-}
-
+/* Side Panels */
 #side-panels {
     position: absolute;
     top: 6.7%;
     right: 0;
-    width: 30%; /* Adjust the width based on your preference */
+    width: 30%;
     height: 92.6%;
     display: flex;
-    flex-direction: column; /* Stack panels vertically */
+    flex-direction: column;
     gap: 5px;
 }
 
@@ -354,28 +168,39 @@
     overflow-y: auto;
     border: 1px solid #ccc;
 }
-/* Attributes Table Styling */
-#attributes-table {
-    overflow-y: auto;
-    width: 100%;                               /* Full width of the container */
-    border-collapse: collapse;                 /* Removes space between table cells */
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .topnav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logos, .login-container {
+        width: 90%;
+    }
+
+    #map {
+        height: 50vh;
+    }
+
+    #side-panels {
+        width: 100%;
+        position: relative;
+        height: auto;
+    }
 }
 
-#attributes-table th, #attributes-table td {
-    /* border: 1px solid #ddd;                    Light gray border for cells */
-    border: 1px solid #040404;
-    padding: 8px;                              /* Padding inside cells */
-    padding-left: 3px;
-    text-align: center;                          /* Left-align text */
-    overflow: visible; /* Hide overflow */
-    max-width: 60px; /* Set maximum width for cells */
-    text-overflow: clip; /* Show ellipsis (...) for overflowed text */
-    white-space: normal; /* Prevent wrapping */
-    overflow-x: auto;
-}
+@media (max-width: 768px) {
+    .login-container {
+        padding: 30px;
+    }
 
-#attributes-table th {
-    background-color: #f2f2f2;                 /* Light gray background for headers */
-    font-weight: bold;                         /* Bold text for headers */
-}
+    #asset-search-box {
+        max-width: 300px;
+    }
 
+    #map {
+        height: 40vh;
+    }
+}
